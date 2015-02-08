@@ -33,10 +33,10 @@ cells. It should  output as a valid HTML5 document.
 * checklist [1/8]
  - [X] accept 4 parameters min-multiplicand, max-multiplicand, min-multiplier, max-multiplier
 
- - [ ] check that min < max for both multiplicands and multipliers
- - [ ] if not, print message: "Minimum [multiplicand|multiplier] larger than maximum."
  - [ ] check that 4 parameters are integers
  - [ ] if not, print 1 message for each invalid input: "[min-multiplicand...max-multiplier] must be an integer."
+ - [ ] check that min < max for both multiplicands and multipliers
+ - [ ] if not, print message: "Minimum [multiplicand|multiplier] larger than maximum."
  - [ ] check that all 4 parameters exist.
  - [ ] for each missing parameter print: "Missing parameter [min-multiplicand ...  max-multiplier]."
  - [ ] print table with following properties [0/6]
@@ -52,11 +52,27 @@ cells. It should  output as a valid HTML5 document.
  */
 
 
-
+// could probably do a better job of this, but it works
 $row_min = $_GET['min-multiplicand'];
 $row_max = $_GET['max-multiplicand'];
 $col_min = $_GET['min-multiplier'];
 $col_max = $_GET['max-multiplier'];
+
+
+/* 
+ check that 4 parameters are integers
+ if not, print 1 message for each invalid input: "[min-multiplicand...max-multiplier] must be an integer."
+
+*/
+
+// compact all vars to an array, then loop over the array
+foreach( compact(array("row_min", "row_max", "col_min", "col_max")) as $i )
+    {
+        if ( !is_int ($i) )
+            echo  $$i . "must be an integer\n";
+    }
+
+
 
 
 echo "<table border='1'>";
