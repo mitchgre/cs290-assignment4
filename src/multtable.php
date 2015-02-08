@@ -1,3 +1,9 @@
+<html>
+<head>
+<title>
+multiplication table
+</title>
+</head>
 <?php
 /*
 This file should accept 4 parameters passed via the URL in a GET
@@ -51,12 +57,14 @@ cells. It should  output as a valid HTML5 document.
 
  */
 
-
 // could probably do a better job of this, but it works
-$row_min = $_GET['min-multiplicand'];
-$row_max = $_GET['max-multiplicand'];
-$col_min = $_GET['min-multiplier'];
-$col_max = $_GET['max-multiplier'];
+
+$inps = array(
+    "row_min" => $_GET["min-multiplicand"],
+    "row_max" => $_GET["max-multiplicand"],
+    "col_min" => $_GET["min-multiplier"],
+    "col_max" => $_GET["max-multiplier"]
+);
 
 
 /* 
@@ -64,22 +72,25 @@ $col_max = $_GET['max-multiplier'];
  if not, print 1 message for each invalid input: "[min-multiplicand...max-multiplier] must be an integer."
 
 */
-
-// compact all vars to an array, then loop over the array
-foreach( compact(array("row_min", "row_max", "col_min", "col_max")) as $i )
+foreach ($inps as $key => $val) // here $key is the key and $val is.. well, you get it...
     {
-        if ( !is_int ($i) )
-            echo  $$i . "must be an integer\n";
+        if (!ctype_digit($val) ) //( !is_int($val) )
+            echo $key . " is not an int it is " . $val . "<br>";
+        else
+            echo $key . " is an int with " . $val . "<br>";
     }
+//echo $key . " must be an integer." . "<br>";
+        // echo $i . $val .  "<br>";
+
 
 
 
 
 echo "<table border='1'>";
-for ($tr=$row_min; $tr<=$row_max; $tr++)
+for ($tr=$inps["row_min"]; $tr<=$inps["row_max"]; $tr++)
     {
         echo "<tr>";
-        for ($td=$col_min; $td<=$col_max; $td++)
+        for ($td=$inps["col_min"]; $td<=$inps["col_max"]; $td++)
             {
                 echo "<td align='center' border='1'>".$tr*$td."</td>";
             }
@@ -89,6 +100,8 @@ echo "</table>";
 
 
 
+
 ?>
 
 
+</html>
