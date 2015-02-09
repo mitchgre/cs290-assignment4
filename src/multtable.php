@@ -111,14 +111,24 @@ function errorFree()
 
 function renderTable()
 {
-    global $inps;
-    echo "<table border='1'>";
+    global $inps; // can't access global vars without 'global' prefix
+
+    echo "<table border='1'>"; 
+    //echo "<table >"; 
+
+    echo "<tr><td></td>";
+    for ($td=$inps["col_min"]; $td<=$inps["col_max"]; $td++)
+        echo "<td align='center' border='1'>".$td."</td>";
+    echo "</tr>";
+
+    $i=0;
     for ($tr=$inps["row_min"]; $tr<=$inps["row_max"]; $tr++)
         {
-            echo "<tr>";
+            echo "<tr><td align='center' border='1'>".($inps['row_min']+$i)."</td>";
+            $i = $i+1;
             for ($td=$inps["col_min"]; $td<=$inps["col_max"]; $td++)
                 {
-                    echo "<td align='center' border='1'>".$tr*$td."</td>";
+                    echo "<td align='center' border='1'>".($tr)*($td)."</td>";
                 }
             echo "</tr>";
         }
