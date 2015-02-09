@@ -9,17 +9,19 @@
 /*
 
 login.php should have a form where a user can enter a username. It
-should have a button that says "Login". Upon clicking the login button
-the page should POST the username to the page content1.php. The
-username should be posted via a parameter called username. If the
-username is an empty string or null, content1.php should display the
-message "A username must be entered. Click here to return to the login
-screen.". The text 'here' should be a link that links back to
-login.php. If the username is any other string it should display the
-text "Hello [username] you have visited this page [n] times
-before. Click here to logout.". n should display 0 on the first visit,
-1 on the 2nd and so on. The text 'here' should log the user out,
-destroying the session, and return them to the login screen. 
+should have a button that says "Login". 
+
+Upon clicking the login button the page should POST the username to
+the page content1.php. The username should be posted via a parameter
+called username. If the username is an empty string or null,
+content1.php should display the message "A username must be
+entered. Click here to return to the login screen.". The text 'here'
+should be a link that links back to login.php. If the username is any
+other string it should display the text "Hello [username] you have
+visited this page [n] times before. Click here to logout.". n should
+display 0 on the first visit, 1 on the 2nd and so on. The text 'here'
+should log the user out, destroying the session, and return them to
+the login screen.  
 
 If the user navigates away from the page and returns, the session
 should persist. The user may not navigate back via a POST. This is OK,
@@ -44,7 +46,17 @@ login.php.
 */
 
 session_start();
+$_SESSION['n'] = 0;
+// output a form to login
+echo <<<_END
+<form method ='post' action='content1.php'>
+<table>
+ <tr><td>Username:</td> <td> <input type='text' name='username'></td></tr>
 
+ <tr><td colspan='2' align='center'>
+ <input type='submit' value='Log In'></td></tr>
+</table></form>
+_END;
 
 ?>
 
