@@ -24,56 +24,51 @@ else // otherwise, we ARE already logged in so let's proceed
 
 // what? you're leaving already?
 function checkLogout(){
-  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (!empty($_GET))
-      if ( isset($_GET["logout"]) && $_POST["logout"] == 'true')
-    {
-      echo "logging out";
-      logoutSession();
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if (!empty($_GET))
+            if ( isset($_GET["logout"]) && $_POST["logout"] == 'true')
+                {
+                    echo "logging out";
+                    logoutSession();
+                }
+            else
+                {
+                    echo "something went wrong. ";
+                    logoutSession();
+                }
     }
-    else
-    {
-      echo "something went wrong. ";//echo json_encode(array("Type"=>"GET", "parameters"=>null));
-      logoutSession();
-    }
-  }
 }
 
 
 // let's just see if you are who you say you are.
 function checkLogin(){
-  $flag = true;
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-  {
-    if (! empty($_POST))
-    {
-      if ( isset($_POST["username"]) && $_POST["username"] != null)
-      {
-        $_SESSION['loggedin'] = true;
-	proceed();
-  	return true;
-      }
-      /*   Couldn't get POST logout to work, so used GET instead.
-            -----------------------------------------------------
-      else if (isset($_POST["logout"]) && $_POST["logout"] == "true")
-      {
-        logoutSession();
-      }
-      */
-      else
-	{
-        echo "A username must be entered. Click <a href=\"./login.php\">here</a> to return to the login screen";
-	}
+    $flag = true;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+        {
+            if (! empty($_POST))
+                {
+                    if ( isset($_POST["username"]) && $_POST["username"] != null)
+                        {
+                            $_SESSION['loggedin'] = true;
+                            proceed();
+                            return true;
+                        }
+                    else
+                        {
+                            echo "A username must be entered. Click <a href=\"./login.php\">here</a> to return to the login screen";
+                            return true;
+                        }
       
-    } 
+                } 
     
-    else // post is empty
-    {
-      echo "you shouldn't be here.";
-      $flag = false;
-      logoutSession();
-    }
-  }
+            else // post is empty
+                {
+                    echo "you shouldn't be here.";
+                    return false;
+                    //$flag = false;
+                    //logoutSession();
+                }
+        }
 }
 
 
@@ -91,7 +86,7 @@ function proceed(){
 function logoutSession(){
   unset($_SESSION['username']);
   session_destroy();
-  $redirect = "http://" . $_SERVER['HTTP_HOST'] . $filePath;
+  //$redirect = "http://" . $_SERVER['HTTP_HOST'] . $filePath;
   header("Location: {$redirect}/login.php",true);
   die();  
 }
