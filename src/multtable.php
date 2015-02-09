@@ -71,10 +71,10 @@ cells. It should  output as a valid HTML5 document.
 
 //global $inps;
 $inps = array(
-    "row_min" => $_GET["min-multiplicand"],
-    "row_max" => $_GET["max-multiplicand"],
-    "col_min" => $_GET["min-multiplier"],
-    "col_max" => $_GET["max-multiplier"]);
+    "min-multiplicand" => $_GET["min-multiplicand"],
+    "max-multiplicand" => $_GET["max-multiplicand"],
+    "min-multiplier" => $_GET["min-multiplier"],
+    "max-multiplier" => $_GET["max-multiplier"]);
 
 
 // NEED TO CLEAN THIS TO USE PROPER NAMES.
@@ -101,12 +101,12 @@ function errorFree()
         }
     
 // check that min < max for both multiplicands and multipliers
-    if ($inps["row_min"] > $inps["row_max"])
+    if ($inps["min-multiplicand"] > $inps["max-multiplicand"])
         {
             echo "Minimum multiplicand larger than maximum.<br>" ;
             $keepGoing = false;
         }
-    if ($inps["col_min"] > $inps["col_max"])
+    if ($inps["min-multiplier"] > $inps["max-multiplier"])
         {
             echo "Minimum multiplier larger than maximum.<br>";
             $keepGoing = false;
@@ -123,16 +123,16 @@ function renderTable()
     echo "<table>"; 
 
     echo "<tr><td></td>";
-    for ($td=$inps["col_min"]; $td<=$inps["col_max"]; $td++)
+    for ($td=$inps["min-multiplier"]; $td<=$inps["max-multiplier"]; $td++)
         echo "<td>".$td."</td>";
     echo "</tr>";
 
     $i=0;
-    for ($tr=$inps["row_min"]; $tr<=$inps["row_max"]; $tr++)
+    for ($tr=$inps["min-multiplicand"]; $tr<=$inps["max-multiplicand"]; $tr++)
         {
-            echo "<tr><td>".($inps['row_min']+$i)."</td>";
+            echo "<tr><td>".($inps['min-multiplicand']+$i)."</td>";
             $i = $i+1;
-            for ($td=$inps["col_min"]; $td<=$inps["col_max"]; $td++)
+            for ($td=$inps["min-multiplier"]; $td<=$inps["max-multiplier"]; $td++)
                 {
                     echo "<td>".($tr)*($td)."</td>";
                 }

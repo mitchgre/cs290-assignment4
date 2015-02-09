@@ -1,0 +1,63 @@
+Start: Sun, 8 Feb 2015 14:34:00 -0700 
+End: Sun, 8 Feb 2015 14:35:44 -0700 
+Tasks: added empty files
+
+Start: Sun, 8 Feb 2015 14:35:44 -0700 
+End: Sun, 8 Feb 2015 14:46:20 -0700 
+Tasks: basic multiplication table with no requests.
+
+Start: Sun, 8 Feb 2015 14:46:20 -0700 
+End: Sun, 8 Feb 2015 14:59:57 -0700 
+Tasks: table with unprotected _get requests and no error checking.
+
+Start: Sun, 8 Feb 2015 14:59:57 -0700 
+End: Sun, 8 Feb 2015 15:32:28 -0700 
+Tasks: finished task#1 from multtable.php, added docstring and progress checklist.
+
+Start: Sun, 8 Feb 2015 15:32:28 -0700 
+End: Sun, 8 Feb 2015 15:52:34 -0700 
+Tasks: multtable.php -> broken work on task#2, need to restructure and understand arrays better
+
+Start: Sun, 8 Feb 2015 15:52:34 -0700 
+End: Sun, 8 Feb 2015 16:32:14 -0700 
+Tasks: multtable.php -> broken work on task#2, using ctype_digit instead of int seems to work as expected
+
+Start: Sun, 8 Feb 2015 16:32:14 -0700 
+End: Sun, 8 Feb 2015 17:49:55 -0700 
+Tasks: multtable.php -> almost there, proper names are missing, upper
+left cell is filled, and table isn't tall enough.
+
+Start: Sun, 8 Feb 2015 17:49:55 -0700  
+End: Sun, 8 Feb 2015 18:34:13 -0700 
+Tasks: multtable.php -> works as expected. Need to clean up a little and validate html.
+
+Start: Sun, 8 Feb 2015 18:34:13 -0700 
+End: Sun, 8 Feb 2015 18:47:55 -0700 
+Tasks: multtable.php -> passed validation on http://validator.w3.org/check
+
+Start: Sun, 8 Feb 2015 18:47:55 -0700 
+End: Sun, 8 Feb 2015 18:54:34 -0700 
+Tasks: loopback.php queued up and ready to fill in.
+
+Start: Sun, 8 Feb 2015 18:54:34 -0700 
+End: Sun, 8 Feb 2015 19:55:42 -0700 
+Tasks: loopback.php -> is this it?
+
+Start: Sun, 8 Feb 2015 19:55:42 -0700 
+End: Sun, 8 Feb 2015 20:05:47 -0700 
+Tasks: loopback.php -> added conditionals if parameters are empty
+
+Start: Sun, 8 Feb 2015 20:05:47 -0700 
+End: Sun, 8 Feb 2015 20:16:08 -0700 
+Tasks: login.php -> setup, trying to understand.
+
+Start: Sun, 8 Feb 2015 20:16:08 -0700 
+End: Sun, 8 Feb 2015 21:43:46 -0700 
+Tasks: login.php,content1.php -> mostly working.  Broken AJAX needs to
+be removed, since pure PHP works.  Still unsure why AJAX wasn't
+working, but that wasn't the assignment anyway. 
+
+
+Start: Sun, 8 Feb 2015 21:43:46 -0700 
+End: Sun, 8 Feb 2015 22:13:19 -0700 
+Tasks: login.php,content1.php,content2.php -> mostly working. Let's log this and call it a night.
