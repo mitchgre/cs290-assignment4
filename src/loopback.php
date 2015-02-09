@@ -3,12 +3,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>loopback</title>
-    <style>
-     tr,td { align:center;
-	     border:solid;
-	     border-width: 1px;
-       }
-    </style>
   </head>
 <body>
 <?php
@@ -37,13 +31,19 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //echo "Post Request Received";
     //print_r($_POST);
-    echo json_encode($_POST);
+    if (!empty($_POST))
+        echo json_encode(array("Type"=>"POST", "parameters"=>$_POST));
+    else
+        echo json_encode(array("Type"=>"POST", "parameters"=>null));
 }
 // handle get request
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     //echo "Get Request Received";
     //print_r($_GET);
-    echo json_encode($_GET);
+    if (!empty($_GET))
+        echo json_encode(array("Type"=>"GET", "parameters"=>$_GET));
+    else
+        echo json_encode(array("Type"=>"GET", "parameters"=>null));
 }
 
 
