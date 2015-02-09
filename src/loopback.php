@@ -29,6 +29,25 @@
    built in JSON function in PHP to produce this output. 
 
 */
+
+
+// um.. can't be this simple... can it?
+
+// handle post request
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //echo "Post Request Received";
+    //print_r($_POST);
+    echo json_encode($_POST);
+}
+// handle get request
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    //echo "Get Request Received";
+    //print_r($_GET);
+    echo json_encode($_GET);
+}
+
+
+
 ?>
 
 </body>
