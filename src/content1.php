@@ -8,6 +8,15 @@
 
 <?php
 session_start();
+if (ini_get('register_globals'))
+{
+    foreach ($_SESSION as $key=>$value)
+    {
+        if (isset($GLOBALS[$key]))
+            unset($GLOBALS[$key]);
+    }
+}
+
 
 // start script here
 if ( ! isset($_SESSION['loggedin']) ) // if not logged in yet, let's see if we can log in 
