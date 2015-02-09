@@ -47,6 +47,7 @@ login.php.
 
 session_start();
 $_SESSION['n'] = 0;
+$_SESSION['m'] = 0;
 // output a form to login
 echo <<<_END
 <form method ='post' action='content1.php'>
